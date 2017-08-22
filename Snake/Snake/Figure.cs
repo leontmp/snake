@@ -6,6 +6,9 @@ namespace Snake
 {
     class Figure {
         protected List<Point> pline;
+        public Figure() {
+            pline = new List<Point>();
+        }
         public void Draw() {
             foreach (Point i in pline) {
                 i.Draw();
