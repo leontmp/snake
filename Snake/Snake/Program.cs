@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Snake
 {
@@ -6,25 +7,27 @@ namespace Snake
     {
         static void Main(string[] args)
         {
+            VerticalLine v1 = new VerticalLine(10, 0, 5, '%');
+            Draw(v1);
 
-            Console.SetWindowSize(80, 25);
-            Console.SetBufferSize(80, 25);
-            
-            HorizontalLine upLine = new HorizontalLine(0,78,0,'+');
-            HorizontalLine downLine = new HorizontalLine(0,78,24,'+');
-            VerticalLine leftLine = new VerticalLine(0,0,24,'+');
-            VerticalLine rightLine = new VerticalLine(78,0,24,'+');
+            Point p = new Point(4, 5, '*');
+            Figure fSnake = new Snake(p,4,Direction.RIGHT);
+            Draw(fSnake);
+            fSnake = (Snake)fSnake;
 
-            upLine.Draw();
-            downLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
-
-            Point p = new Point(4,5,'*');
-            Snake snake = new Snake(p,4,Direction.RIGHT);
-            snake.Draw();
+            HorizontalLine h1 = new HorizontalLine(0, 5, 6, '&');
+            List<Figure> figures = new List<Figure>();
+            figures.Add(fSnake);
+            figures.Add(v1);
+            figures.Add(h1);
+            foreach (Figure item in figures) {
+                item.Draw();
+            }
 
             Console.ReadLine();
+        }
+        static void Draw(Figure figure) {
+            figure.Draw();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Snake
         public Figure() {
             pline = new List<Point>();
         }
-        public void Draw() {
+        public virtual void Draw() {
             foreach (Point i in pline) {
                 i.Draw();
             }

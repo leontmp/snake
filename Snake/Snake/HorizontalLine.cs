@@ -12,5 +12,13 @@ namespace Snake
                 pline.Add(p);
             }
         }
+        public override void Draw() {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            //foreach (Point p in pline) {
+            //    p.Draw();
+            //}
+            base.Draw();
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }
