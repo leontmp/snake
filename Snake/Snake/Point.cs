@@ -15,10 +15,10 @@ namespace Snake
             y = p.y;
             sym = p.sym;
         }
-        public Point(int _x, int _y, char _sym) {
-            x = _x;
-            y = _y;
-            sym = _sym;
+        public Point(int x, int y, char sym) {
+            this.x = x;
+            this.y = y;
+            this.sym = sym;
         }
         public void Draw() {
             Console.SetCursorPosition(x, y);
@@ -32,7 +32,9 @@ namespace Snake
                 case Direction.DOWN: { y = y + offset; break; }
             }
         }
-
+        public bool IsHit(Point p) {
+            return p.x == this.x && p.y == this.y;
+        }
         internal void Clear() {
             sym = ' ';
             Draw();

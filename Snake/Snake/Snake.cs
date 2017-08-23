@@ -43,5 +43,16 @@ namespace Snake
                 case ConsoleKey.DownArrow: { direction = Direction.DOWN; break; }
             }
         }
+        internal bool Eat(Point food) {
+            Point head = GetNextPoint();
+            if (head.IsHit(food)) {
+                food.sym = head.sym;
+                pline.Add(food);
+                food.Draw();
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }
