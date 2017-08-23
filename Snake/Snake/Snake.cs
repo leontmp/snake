@@ -35,6 +35,16 @@ namespace Snake
             return nextPoint;
         }
 
+        internal bool IsHitTail() {
+			var head = pline.Last();
+			for(int i = 0; i<pline.Count - 2; i++ )
+			{
+				if (head.IsHit(pline[i] ) )
+					return true;
+			}
+			return false;
+		}
+
         internal void HandleKey(ConsoleKey key) {
             switch (key) {
                 case ConsoleKey.LeftArrow: {direction = Direction.LEFT; break;}
